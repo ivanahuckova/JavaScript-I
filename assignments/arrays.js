@@ -91,21 +91,11 @@ console.log(lastCar);
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
 let carModels = [];
-inventory.sort(function(a, b) {
-	let modelA = a.car_model.toUpperCase(); // ignore upper and lowercase
-	let modelB = b.car_model.toUpperCase(); // ignore upper and lowercase
-	if (modelA < modelB) {
-		return -1;
-	}
-	if (modelA > modelB) {
-		return 1;
-	}
-	return 0;
-});
-
 for (let i = 0; i < inventory.length; i++) {
-	carModels.push(inventory[i].car_model);
+	carModels.push(inventory[i].car_model.toLowerCase());
+	carModels[i] = carModels[i].charAt(0).toUpperCase() + carModels[i].substr(1);
 }
+carModels.sort();
 console.log(carModels);
 
 // ==== Challenge 4 ====
